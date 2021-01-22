@@ -61,3 +61,4 @@ crashlytics-build.properties
 space axolotl/Library/AnnotationManager
 space axolotl/Library/
 space axolotl/Logs/AssetImportWorker0.log
+space axolotl/Logs/AssetImportWorker0-prev.log

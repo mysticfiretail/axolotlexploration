@@ -5,9 +5,12 @@ using UnityEngine.InputSystem;
 
 public class NewPlayerControl : MonoBehaviour
 {
-     public InputActionReference movementControl;
+    public InputActionReference movementControl;
     public InputActionReference jumpControl;
+    public InputActionReference crouchControl;
     public CharacterController controller;
+    public BoxCollider head;
+    public BoxCollider body;
     
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -22,17 +25,23 @@ public class NewPlayerControl : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     public float rotationSpeed = 4f;
+    float originalHeight;
+    public float crouchHeight;
+
+
 
     private void OnEnable()
     {
         movementControl.action.Enable();
         jumpControl.action.Enable();
+        crouchControl.action.Enable();
     }
 
     private void OnDisable()
     {
         movementControl.action.Disable();
         jumpControl.action.Disable();
+        crouchControl.action.Disable();
     }
 
     private void Start()
@@ -71,6 +80,28 @@ public class NewPlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
 
+
+        if(crouchControl.action.triggered)
+         {
+             Crouch();
+         }
+        else
+         {
+            goUp();
+         }
+
     }
+
+    void Crouch()
+        {
+
+        }
+
+    void goUp()
+        {
+ 
+        }
+
+    
 }
 

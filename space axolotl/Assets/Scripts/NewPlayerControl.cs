@@ -84,6 +84,7 @@ public class NewPlayerControl : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
@@ -98,8 +99,15 @@ public class NewPlayerControl : MonoBehaviour
         AnimateWalk(movement);
        
 
-
-
+if (!groundedPlayer || jumpControl.action.triggered)
+         {
+            animator.SetTrigger("isJumping");
+         }
+            else 
+            {
+                animator.ResetTrigger("isJumping");
+            }
+         
 
    if (crouchControl.action.triggered)
          {

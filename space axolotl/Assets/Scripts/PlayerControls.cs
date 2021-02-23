@@ -160,6 +160,52 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""pausebutton"",
+            ""id"": ""a08aa460-44cb-47fc-a7bf-e1c8b35a18f8"",
+            ""actions"": [
+                {
+                    ""name"": ""pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc05646b-ca4a-4724-999c-c1e07b8fc9ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=1,behavior=2)""
+                },
+                {
+                    ""name"": ""mouseControls"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2603cf3-d3f3-48af-852d-a29aa4da0378"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=1,behavior=2)""
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""559a281b-7c61-4bab-b6bf-70f1fdb91968"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2542a6a3-03fd-4890-85f3-e4eefbd33cb6"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""mouseControls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -171,6 +217,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // pausebutton
+        m_pausebutton = asset.FindActionMap("pausebutton", throwIfNotFound: true);
+        m_pausebutton_pause = m_pausebutton.FindAction("pause", throwIfNotFound: true);
+        m_pausebutton_mouseControls = m_pausebutton.FindAction("mouseControls", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -281,6 +331,47 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // pausebutton
+    private readonly InputActionMap m_pausebutton;
+    private IPausebuttonActions m_PausebuttonActionsCallbackInterface;
+    private readonly InputAction m_pausebutton_pause;
+    private readonly InputAction m_pausebutton_mouseControls;
+    public struct PausebuttonActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PausebuttonActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @pause => m_Wrapper.m_pausebutton_pause;
+        public InputAction @mouseControls => m_Wrapper.m_pausebutton_mouseControls;
+        public InputActionMap Get() { return m_Wrapper.m_pausebutton; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PausebuttonActions set) { return set.Get(); }
+        public void SetCallbacks(IPausebuttonActions instance)
+        {
+            if (m_Wrapper.m_PausebuttonActionsCallbackInterface != null)
+            {
+                @pause.started -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
+                @pause.performed -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
+                @pause.canceled -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
+                @mouseControls.started -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
+                @mouseControls.performed -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
+                @mouseControls.canceled -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
+            }
+            m_Wrapper.m_PausebuttonActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @pause.started += instance.OnPause;
+                @pause.performed += instance.OnPause;
+                @pause.canceled += instance.OnPause;
+                @mouseControls.started += instance.OnMouseControls;
+                @mouseControls.performed += instance.OnMouseControls;
+                @mouseControls.canceled += instance.OnMouseControls;
+            }
+        }
+    }
+    public PausebuttonActions @pausebutton => new PausebuttonActions(this);
     public interface IPlayerActions
     {
         void OnMouseLook(InputAction.CallbackContext context);
@@ -288,5 +379,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IPausebuttonActions
+    {
+        void OnPause(InputAction.CallbackContext context);
+        void OnMouseControls(InputAction.CallbackContext context);
     }
 }

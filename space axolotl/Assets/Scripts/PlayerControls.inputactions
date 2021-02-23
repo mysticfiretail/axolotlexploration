@@ -147,6 +147,52 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "pausebutton",
+            "id": "a08aa460-44cb-47fc-a7bf-e1c8b35a18f8",
+            "actions": [
+                {
+                    "name": "pause",
+                    "type": "Button",
+                    "id": "dc05646b-ca4a-4724-999c-c1e07b8fc9ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1,behavior=2)"
+                },
+                {
+                    "name": "mouseControls",
+                    "type": "Button",
+                    "id": "b2603cf3-d3f3-48af-852d-a29aa4da0378",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1,behavior=2)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "559a281b-7c61-4bab-b6bf-70f1fdb91968",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2542a6a3-03fd-4890-85f3-e4eefbd33cb6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "mouseControls",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

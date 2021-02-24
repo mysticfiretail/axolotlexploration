@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class NewPlayerControl : MonoBehaviour
+public class DupeofPlayerControls : MonoBehaviour
 {
     public InputActionReference movementControl;
     public InputActionReference jumpControl;
@@ -83,7 +83,8 @@ public class NewPlayerControl : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
- if(groundedPlayer)
+
+        if(groundedPlayer)
     {
         animator.ResetTrigger("isJumping");
     }
@@ -97,6 +98,7 @@ public class NewPlayerControl : MonoBehaviour
         // Changes the height position of the player..
         if (jumpControl.action.triggered && groundedPlayer)
         {
+          //  AnimateJump();
             animator.SetTrigger("isJumping");
             Debug.Log(isJumping);
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -123,6 +125,16 @@ public class NewPlayerControl : MonoBehaviour
             totem.OnInteract();
         }
 
+
+    /*if (jumpControl.action.triggered)
+         {
+            animator.SetTrigger("isJumping");
+         }
+*/
+
+
+    
+         
 
    if (crouchControl.action.triggered)
          {
@@ -170,6 +182,10 @@ public class NewPlayerControl : MonoBehaviour
         animator.SetBool("isWalking", isWalking);
     }
 
+    void AnimateJump()
+    {
+        animator.SetBool("isJumping", isJumping);
+    }
 
     void Crouching ()
     {
@@ -197,4 +213,3 @@ public class NewPlayerControl : MonoBehaviour
         }
 
 }
-

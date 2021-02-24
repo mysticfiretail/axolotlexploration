@@ -8,6 +8,7 @@ public class NewPlayerControl : MonoBehaviour
     public InputActionReference movementControl;
     public InputActionReference jumpControl;
     public InputActionReference crouchControl;
+    public InputActionReference interactControl;
     public CharacterController controller;
     PlayerControls Input;
     
@@ -31,6 +32,9 @@ public class NewPlayerControl : MonoBehaviour
     private bool isCrouching = false;
     private bool isJumping = false;
     private float animationFinishTime = 0.9f;
+
+    [SerializeField]
+    GameObject interactableObject;
 
 
     void Awake()
@@ -58,6 +62,17 @@ public class NewPlayerControl : MonoBehaviour
        // controller = gameObject.AddComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
         originalHeight = controller.height; 
+    }
+
+    void OnTriggerEnter()
+    {
+        interactControl.action.Enable();
+
+    }
+
+    void OnTriggerExit()
+    {
+        interactControl.action.Disable();
     }
 
     void Update()
@@ -96,6 +111,13 @@ public class NewPlayerControl : MonoBehaviour
         
         AnimateWalk(movement);
        
+
+        if (interactControl.action.triggered)
+        {
+            Totem totem = interactableObject.GetComponent<Totem>();
+            totem.OnInteract();
+        }
+
 
 if (!groundedPlayer || jumpControl.action.triggered)
          {

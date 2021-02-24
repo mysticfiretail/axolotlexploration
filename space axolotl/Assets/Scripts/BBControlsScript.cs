@@ -18,11 +18,11 @@ public class BBControlsScript : MonoBehaviour
 
     public Animator animator;
     private float playerSpeed = 6.0f;
-    private float jumpHeight = 1.0f;
+    //private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     public float rotationSpeed = 4f;
     private bool isWalking = false;
-    private bool isJumping = false;
+    //private bool isJumping = false;
     private float animationFinishTime = 0.9f;
     public GameObject SDcamera;
     public BoxCollider groundCheck;
@@ -121,10 +121,6 @@ public class BBControlsScript : MonoBehaviour
         animator.SetBool("isWalking", isWalking);
     }
 
-    void AnimateJump()
-    {
-        animator.SetBool("isJumping", isJumping);
-    }
-
+    
     }
 }

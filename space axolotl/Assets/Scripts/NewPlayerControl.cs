@@ -9,6 +9,7 @@ public class NewPlayerControl : MonoBehaviour
     public InputActionReference jumpControl;
     public InputActionReference crouchControl;
     public InputActionReference interactControl;
+    public InputActionReference climbControl;
     public CharacterController controller;
     PlayerControls Input;
     
@@ -67,13 +68,22 @@ public class NewPlayerControl : MonoBehaviour
     void OnTriggerEnter()
     {
         interactControl.action.Enable();
-
+        if (tag==("wall"))
+        {
+            climbControl.action.Enable();
+        }
     }
 
     void OnTriggerExit()
     {
         interactControl.action.Disable();
+        if(tag==("wall"))
+        {
+            climbControl.action.Disable();
+        }
     }
+
+    
 
     void Update()
     {

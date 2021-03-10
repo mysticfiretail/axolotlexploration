@@ -8697,6 +8697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BB Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6533761035108587665, guid: e9de58a985434fe45b056415c67b396f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5ade21e2267aea409227b9b8fa74caf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9de58a985434fe45b056415c67b396f, type: 3}
 --- !u!1 &1373984002 stripped

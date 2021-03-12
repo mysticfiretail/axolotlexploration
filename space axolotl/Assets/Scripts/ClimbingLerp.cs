@@ -15,6 +15,7 @@ public class ClimbingLerp : MonoBehaviour
     void Start()
     {
         //length = myPositions.Length;
+        
     }
 
     // Update is called once per frame

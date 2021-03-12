@@ -24,7 +24,7 @@ public class NewPlayerControl : MonoBehaviour
     public Animator animator;
     private float playerSpeed = 6.0f;
     private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    public float gravityValue = -9.81f;
     public float rotationSpeed = 4f;
     float originalHeight;
     public float crouchHeight;
@@ -32,6 +32,7 @@ public class NewPlayerControl : MonoBehaviour
     private bool isWalking = false;
     private bool isCrouching = false;
     private bool isJumping = false;
+    private bool isClimbing = false;
     private float animationFinishTime = 0.9f;
 
     [SerializeField]
@@ -65,21 +66,21 @@ public class NewPlayerControl : MonoBehaviour
         originalHeight = controller.height; 
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         interactControl.action.Enable();
-        if (tag==("wall"))
+        if (other.tag==("Ladder"))
         {
             climbControl.action.Enable();
         }
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
         interactControl.action.Disable();
-        if(tag==("wall"))
+        if(other.tag==("Ladder"))
         {
-            climbControl.action.Disable();
+             climbControl.action.Disable();
         }
     }
 
@@ -133,6 +134,18 @@ public class NewPlayerControl : MonoBehaviour
             totem.OnInteract();
         }
 
+        if (climbControl.action.triggered)
+        {
+            Debug.Log("triggered");
+            gravityValue = 0f;
+            GetComponent<ClimbingLerp>().enabled = true;
+            animator.SetTrigger("isClimbing");
+        }
+        else 
+        {
+            //GetComponent<ClimbingLerp>().enabled = false;
+            animator.ResetTrigger("isClimbing");
+        }
 
    if (crouchControl.action.triggered)
          {

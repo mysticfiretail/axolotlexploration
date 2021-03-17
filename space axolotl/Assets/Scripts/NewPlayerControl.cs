@@ -72,6 +72,8 @@ public class NewPlayerControl : MonoBehaviour
         if (other.tag==("Ladder"))
         {
             climbControl.action.Enable();
+            GameObject Child = other.transform.GetChild(0).gameObject;
+            GetComponent<ClimbingLerp>().End = Child;
         }
     }
 

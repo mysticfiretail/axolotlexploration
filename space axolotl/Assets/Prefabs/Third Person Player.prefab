@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2852805043759122187}
   - component: {fileID: 2852805043759122180}
   - component: {fileID: 2852805043759122186}
+  - component: {fileID: 3903934148753902718}
+  - component: {fileID: 8980346576340422414}
   m_Layer: 0
   m_Name: Third Person Player
   m_TagString: Player
@@ -68,9 +70,11 @@ MonoBehaviour:
   jumpControl: {fileID: 9164767918015212716, guid: a10441970fb009844b94e34192fff69d, type: 3}
   crouchControl: {fileID: -29546972560729805, guid: a10441970fb009844b94e34192fff69d, type: 3}
   interactControl: {fileID: -2854452149163420452, guid: a10441970fb009844b94e34192fff69d, type: 3}
+  climbControl: {fileID: 0}
   controller: {fileID: 2852805043759122187}
   turnSmoothTime: 0.1
   animator: {fileID: 2852805044273712614}
+  gravityValue: -9.81
   rotationSpeed: 4
   crouchHeight: 1.13
   crouchPressed: 0
@@ -98,6 +102,40 @@ MonoBehaviour:
   crouchHeight: 1.13
   crouchPressed: 0
   interactableObject: {fileID: 0}
+--- !u!95 &3903934148753902718
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852805043759122182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49ea6f129ab84e74094040079a279316, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8980346576340422414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852805043759122182}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee889d824725d2f48b8810be733e77c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpTime: 1
+  player: {fileID: 0}
+  End: {fileID: 0}
 --- !u!95 &2852805044273712614
 Animator:
   serializedVersion: 3

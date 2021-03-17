@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a5ffa6f38efc3c4591b37a24a8ef012
+guid: 3dce48537d01ae64aaf81a8de24d7ab1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: vine-ladder
-    second: {fileID: 2100000, guid: bc90f351bf501a44190d914f06afc8ea, type: 2}
+      name: No Name
+    second: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   materials:
     materialImportMode: 2
     materialName: 0

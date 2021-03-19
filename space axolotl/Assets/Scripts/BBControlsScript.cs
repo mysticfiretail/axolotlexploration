@@ -5,6 +5,7 @@ public class BBControlsScript : MonoBehaviour
 {
     public InputActionReference BBmovementControl;
     public InputActionReference BBjumpControl;
+    public InputActionReference BBclimbControl;
     public CharacterController controller;
     PlayerControls Input;
     
@@ -19,7 +20,7 @@ public class BBControlsScript : MonoBehaviour
     public Animator animator;
     private float playerSpeed = 6.0f;
     //private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    public float gravityValue = -9.81f;
     public float rotationSpeed = 4f;
     private bool isWalking = false;
     //private bool isJumping = false;
@@ -27,11 +28,32 @@ public class BBControlsScript : MonoBehaviour
     public GameObject SDcamera;
     public BoxCollider groundCheck;
 
+    private bool isClimbing = false;
 
     void Awake()
     {
        Input = new PlayerControls();
 
+    }
+
+
+     void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag==("Ladder"))
+        {
+            BBclimbControl.action.Enable();
+            GameObject Child = other.transform.GetChild(0).gameObject;
+            GetComponent<BBClimbingLerp>().End = Child;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag==("Ladder"))
+        {
+             BBclimbControl.action.Disable();
+        }
     }
 
  /*  public void OnTriggerEnter(Collider other)
@@ -121,6 +143,19 @@ public class BBControlsScript : MonoBehaviour
         animator.SetBool("isWalking", isWalking);
     }
 
-    
+    if (BBclimbControl.action.triggered)
+        {
+            Debug.Log("triggered");
+            gravityValue = 0f;
+            GetComponent<BBClimbingLerp>().enabled = true;
+            animator.SetTrigger("isClimbing");
+        }
+        else 
+        {
+            //GetComponent<ClimbingLerp>().enabled = false;
+            animator.ResetTrigger("isClimbing");
+        }
+
+
     }
 }

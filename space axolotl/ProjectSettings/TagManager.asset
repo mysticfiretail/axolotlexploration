@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - wall
   - Ladder
+  - Checkpoint
+  - Bounds
   layers:
   - Default
   - TransparentFX

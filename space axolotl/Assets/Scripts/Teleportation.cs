@@ -11,7 +11,7 @@ public class Teleportation : MonoBehaviour
    void OnTriggerEnter (Collider other)
    {
        Debug.Log("check");
-       player.transform.position = teleportTarget.transform.position;
+       other.transform.position = teleportTarget.transform.position;
        Debug.Log("done");
    }
 }

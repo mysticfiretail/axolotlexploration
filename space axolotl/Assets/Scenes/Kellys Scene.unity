@@ -9491,7 +9491,7 @@ PrefabInstance:
     - target: {fileID: -107955116091867106, guid: a742f61d48df73b4dbd616dd38cc356c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6157375aacfa943458083d93dc79aa1d, type: 2}
+      objectReference: {fileID: 2100000, guid: c011eb67794671f42ae0868eb8deaa6b, type: 2}
     - target: {fileID: 919132149155446097, guid: a742f61d48df73b4dbd616dd38cc356c, type: 3}
       propertyPath: m_Name
       value: greenhouse-ship

@@ -146,7 +146,7 @@ public class NewPlayerControl : MonoBehaviour
         else 
         {
             //GetComponent<ClimbingLerp>().enabled = false;
-            animator.ResetTrigger("isClimbing");
+           
         }
 
         if(GetComponent<ClimbingLerp>().enabled == true)
@@ -156,6 +156,7 @@ public class NewPlayerControl : MonoBehaviour
         else
         {
             OnEnable();
+            animator.ResetTrigger("isClimbing");
         }
 
    if (crouchControl.action.triggered)

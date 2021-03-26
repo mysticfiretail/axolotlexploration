@@ -224,7 +224,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &465938503
 PrefabInstance:
@@ -243,15 +243,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965064980547771510, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07030704
+      value: 0.070307024
       objectReference: {fileID: 0}
     - target: {fileID: 3965064980547771510, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000039430352
+      value: -0.000000026045889
       objectReference: {fileID: 0}
     - target: {fileID: 3965064980547771510, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.7791067e-10
+      value: 0.0000000018357517
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981061720809, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -267,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981149368908, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981149368908, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -331,15 +331,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981539010800, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13124965
+      value: 0.13124964
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981539010800, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017057534
+      value: 0.000000017057534
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981539010800, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000022583315
+      value: -0.000000002258331
       objectReference: {fileID: 0}
     - target: {fileID: 3965064981616167409, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: Player
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965064982016867417, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 3965064982016867417, guid: 44779694a4267f744864c956545d14e2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -428,7 +428,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -474,10 +474,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.08
       objectReference: {fileID: 0}
+    - target: {fileID: -2371057301384544458, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35699ac8e499cdc4fbf44664914b1fad, type: 2}
     - target: {fileID: 919132149155446097, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_Name
       value: Totem without vine (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2640096120785684498, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35699ac8e499cdc4fbf44664914b1fad, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
 --- !u!1001 &716191552
@@ -489,7 +497,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -535,10 +543,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.04
       objectReference: {fileID: 0}
+    - target: {fileID: -2371057301384544458, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13b6f0b26618ee6489db1daab8f53aa2, type: 2}
     - target: {fileID: 919132149155446097, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_Name
       value: Totem without vine
       objectReference: {fileID: 0}
+    - target: {fileID: 2640096120785684498, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 13b6f0b26618ee6489db1daab8f53aa2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
 --- !u!1 &744553928 stripped
@@ -633,7 +649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1213778976
 MonoBehaviour:
@@ -678,7 +694,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2852805043759122181, guid: e45a8f56f54dc56459a343e5ffb64a54, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2852805043759122181, guid: e45a8f56f54dc56459a343e5ffb64a54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -735,7 +751,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1059538704244840254, guid: e9de58a985434fe45b056415c67b396f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1059538704244840254, guid: e9de58a985434fe45b056415c67b396f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -792,7 +808,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -834,6 +850,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6877364409757847542, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 054696ab1b39f5d499bc5bacc0d4c103, type: 2}
+    - target: {fileID: -6260739560868992914, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 054696ab1b39f5d499bc5bacc0d4c103, type: 2}
     - target: {fileID: 919132149155446097, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
       propertyPath: m_Name
       value: Totem
@@ -842,6 +866,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.07
       objectReference: {fileID: 0}
+    - target: {fileID: 6422391098222128068, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 054696ab1b39f5d499bc5bacc0d4c103, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93c2816128f3fe5418f0cd4587c95c88, type: 3}
 --- !u!1 &1526709760
@@ -948,7 +976,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -994,10 +1022,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.98
       objectReference: {fileID: 0}
+    - target: {fileID: -2371057301384544458, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d4c2fcf928c82245a88fe5645943c03, type: 2}
     - target: {fileID: 919132149155446097, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_Name
       value: Totem without vine (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2640096120785684498, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d4c2fcf928c82245a88fe5645943c03, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
 --- !u!1001 &2087229417
@@ -1055,9 +1091,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.96
       objectReference: {fileID: 0}
+    - target: {fileID: -2371057301384544458, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 715ad768cd07e444ea5f0c8fbd12fc03, type: 2}
     - target: {fileID: 919132149155446097, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
       propertyPath: m_Name
       value: Totem without vine (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2640096120785684498, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 715ad768cd07e444ea5f0c8fbd12fc03, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57aceffcb7aefad4e98a58829c904eaf, type: 3}

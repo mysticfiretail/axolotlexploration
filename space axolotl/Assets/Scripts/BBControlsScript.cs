@@ -40,7 +40,7 @@ public class BBControlsScript : MonoBehaviour
      void OnTriggerEnter(Collider other)
     {
         
-        if (other.tag==("Ladder"))
+        if (other.tag==("RockWall"))
         {
             BBclimbControl.action.Enable();
             GameObject Child = other.transform.GetChild(0).gameObject;
@@ -50,7 +50,7 @@ public class BBControlsScript : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.tag==("Ladder"))
+        if(other.tag==("RockWall"))
         {
              BBclimbControl.action.Disable();
         }
@@ -156,6 +156,15 @@ public class BBControlsScript : MonoBehaviour
             animator.ResetTrigger("isClimbing");
         }
 
+     if(GetComponent<BBClimbingLerp>().enabled == true)
+        {
+            OnDisable();
+        }
+        else
+        {
+            OnEnable();
+            
+        }
 
     }
 }

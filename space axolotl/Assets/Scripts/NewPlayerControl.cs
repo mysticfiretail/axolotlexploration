@@ -36,7 +36,7 @@ public class NewPlayerControl : MonoBehaviour
     private float animationFinishTime = 0.9f;
 
     [SerializeField]
-    GameObject interactableObject;
+    public GameObject interactableObject;
 
 
     void Awake()
@@ -68,7 +68,13 @@ public class NewPlayerControl : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        interactControl.action.Enable();
+        if(other.tag == ("Totem"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        
         if (other.tag==("Ladder"))
         {
             climbControl.action.Enable();
@@ -79,7 +85,10 @@ public class NewPlayerControl : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        interactControl.action.Disable();
+        if(other.tag == ("Totem"))
+        {
+            interactControl.action.Disable();
+        }
         if(other.tag==("Ladder"))
         {
              climbControl.action.Disable();
@@ -142,9 +151,11 @@ public class NewPlayerControl : MonoBehaviour
             gravityValue = 0f;
             GetComponent<ClimbingLerp>().enabled = true;
             animator.SetTrigger("isClimbing");
+            
         }
         else 
         {
+            animator.ResetTrigger("isClimbing");
             //GetComponent<ClimbingLerp>().enabled = false;
            
         }
@@ -156,7 +167,7 @@ public class NewPlayerControl : MonoBehaviour
         else
         {
             OnEnable();
-            animator.ResetTrigger("isClimbing");
+            
         }
 
    if (crouchControl.action.triggered)

@@ -9,6 +9,9 @@ TagManager:
   - Ladder
   - Checkpoint
   - Bounds
+  - Totem
+  - BBPlayer
+  - RockWall
   layers:
   - Default
   - TransparentFX

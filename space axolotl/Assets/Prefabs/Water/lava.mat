@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: water
+  m_Name: lava
   m_Shader: {fileID: -6465566751694194690, guid: b674339330f7ec74d8d0e4f294eb6bc5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -129,9 +129,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_24631f801c844c37873f7be370912fce: {r: 1, g: 1, b: 1, a: 1}
-    - Color_4ba6fc85fef046e89631ba576d32423d: {r: 0, g: 0.7264151, b: 0.5298557, a: 1}
-    - Color_f6e4c5029e3e4a3c91f0c2da4b17cd3f: {r: 0, g: 0.4811321, b: 0.34236678, a: 1}
+    - Color_24631f801c844c37873f7be370912fce: {r: 0.81960785, g: 0.06901998, b: 0.0039215805, a: 1}
+    - Color_4ba6fc85fef046e89631ba576d32423d: {r: 0.14150941, g: 0.09602027, b: 0.07008721, a: 1}
+    - Color_f6e4c5029e3e4a3c91f0c2da4b17cd3f: {r: 0.8679245, g: 0.36619186, b: 0.012281928, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

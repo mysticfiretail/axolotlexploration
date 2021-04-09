@@ -34,6 +34,7 @@ public class NewPlayerControl : MonoBehaviour
     private bool isJumping = false;
     private bool isClimbing = false;
     private float animationFinishTime = 0.9f;
+    public float distToGround = 0.5f;
 
     [SerializeField]
     public GameObject interactableObject;
@@ -100,6 +101,8 @@ public class NewPlayerControl : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(isPlayerGrounded());
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -117,7 +120,7 @@ public class NewPlayerControl : MonoBehaviour
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         // Changes the height position of the player..
-        if (jumpControl.action.triggered && groundedPlayer)
+        if (jumpControl.action.triggered && isPlayerGrounded())
         {
             animator.SetTrigger("isJumping");
             Debug.Log(isJumping);
@@ -241,6 +244,11 @@ public class NewPlayerControl : MonoBehaviour
         {
             controller.height = originalHeight;
         }
+
+    bool isPlayerGrounded()
+    {
+        return Physics.Raycast (transform.position, Vector3.down, distToGround);
+    }
 
 }
 

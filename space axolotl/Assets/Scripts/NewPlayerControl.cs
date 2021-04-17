@@ -58,6 +58,7 @@ public class NewPlayerControl : MonoBehaviour
         movementControl.action.Disable();
         jumpControl.action.Disable();
         crouchControl.action.Disable();
+        climbControl.action.Disable();
     }
 
     private void Start()
@@ -209,6 +210,16 @@ public class NewPlayerControl : MonoBehaviour
     {
         isCrouching = false;
     }
+
+    if (!isPlayerGrounded())
+    {
+        climbControl.action.Disable();
+    }
+    else
+    {
+ //       climbControl.action.Enable();
+    }
+    
 
     }
     

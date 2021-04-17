@@ -9,8 +9,11 @@ public class CinamachineSwitcher : MonoBehaviour
     public InputActionReference ThirdPersonMov;
     public InputActionReference ThirdPersonJump;
     public InputActionReference ThirdPersonCrouch;
+    
+    public InputActionReference ThirdPersonClimb;
     public InputActionReference BBControlsMov;
     public InputActionReference BBControlsJump;
+    public InputActionReference BBControlsClimb;
     public GameObject Player;
     public GameObject BeepBoop;
 
@@ -36,6 +39,7 @@ public class CinamachineSwitcher : MonoBehaviour
         ThirdPersonMov.action.Enable();
         ThirdPersonJump.action.Enable();
         ThirdPersonCrouch.action.Enable();
+        //ThirdPersonClimb.action.Enable();
     }
 
       private void OnDisableTPPlayer()
@@ -43,18 +47,21 @@ public class CinamachineSwitcher : MonoBehaviour
         ThirdPersonMov.action.Disable();
         ThirdPersonJump.action.Disable();
         ThirdPersonCrouch.action.Disable();
+        ThirdPersonClimb.action.Disable();
     }
 
     private void OnDisableBBPlayer()
     {
         BBControlsMov.action.Enable();
         BBControlsJump.action.Enable();
+        //BBControlsClimb.action.Enable();
     }
 
        private void OnEnableBBPlayer()
     {
         BBControlsMov.action.Disable();
         BBControlsJump.action.Disable();
+        BBControlsClimb.action.Disable();
     }
 
     void Start()

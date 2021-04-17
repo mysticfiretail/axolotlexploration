@@ -12,6 +12,8 @@ TagManager:
   - Totem
   - BBPlayer
   - RockWall
+  - EarthTotem
+  - AirTotem
   layers:
   - Default
   - TransparentFX

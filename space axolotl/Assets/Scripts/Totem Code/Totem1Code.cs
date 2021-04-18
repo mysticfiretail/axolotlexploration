@@ -12,6 +12,11 @@ public class Totem1Code : MonoBehaviour
     [SerializeField]public GameObject Button3;
     [SerializeField]public GameObject Button4;
 
+    [SerializeField]public GameObject Button5;
+    [SerializeField]public GameObject Button6;
+
+    public GameObject Platform1;
+
     public GameObject totem3;
 
     void Update()
@@ -27,6 +32,14 @@ public class Totem1Code : MonoBehaviour
             if(Button3.GetComponent<Button3>().isActive == true && Button4.GetComponent<Button4>().isActive == true)
             {
                 totem3.SetActive(true);
+            }
+            else{
+                
+            }
+
+            if(Button5.GetComponent<Button5>().isActive == true && Button6.GetComponent<Button6>().isActive == true)
+            {
+                Platform1.GetComponent<Platform_Moving>().enabled = true;
             }
             else{
                 

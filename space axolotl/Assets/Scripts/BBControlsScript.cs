@@ -30,6 +30,8 @@ public class BBControlsScript : MonoBehaviour
 
     private bool isClimbing = false;
 
+    public float distToGround = 1.5f;
+
     void Awake()
     {
        Input = new PlayerControls();
@@ -75,13 +77,13 @@ public class BBControlsScript : MonoBehaviour
     private void OnEnable()
     {
         BBmovementControl.action.Enable();
-    //    BBjumpControl.action.Enable();
+        //BBclimbControl.action.Enable();
     }
 
     private void OnDisable()
     {
         BBmovementControl.action.Disable();
-    //    BBjumpControl.action.Disable();
+        BBclimbControl.action.Disable();
     }
 
     private void Start()
@@ -166,5 +168,20 @@ public class BBControlsScript : MonoBehaviour
             
         }
 
+    bool isBBGrounded()
+    {
+        return Physics.Raycast (transform.position, Vector3.down, distToGround);
     }
+
+    if (!isBBGrounded())
+    {
+        BBclimbControl.action.Disable();
+    }
+    else
+    {
+ //       BBclimbControl.action.Enable();
+    }
+
+    }
+
 }

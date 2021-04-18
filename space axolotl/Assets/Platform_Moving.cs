@@ -90,10 +90,18 @@ public class Platform_Moving : MonoBehaviour
         {
             other.transform.parent = null;
         }
+        else if (other.gameObject.tag == "BBPlayer")
+        {
+            other.transform.parent = null;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent = transform;
+        }
+        else if (other.gameObject.tag == "BBPlayer")
         {
             other.transform.parent = transform;
         }

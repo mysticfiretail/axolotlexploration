@@ -58,6 +58,7 @@ public class NewPlayerControl : MonoBehaviour
         movementControl.action.Disable();
         jumpControl.action.Disable();
         crouchControl.action.Disable();
+        climbControl.action.Disable();
     }
 
     private void Start()
@@ -69,7 +70,13 @@ public class NewPlayerControl : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == ("Totem"))
+        if(other.tag == ("EarthTotem"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("AirTotem"))
         {
             interactControl.action.Enable();
             GameObject interact = other.transform.gameObject;
@@ -86,7 +93,11 @@ public class NewPlayerControl : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == ("Totem"))
+        if(other.tag == ("EarthTotem"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("AirTotem"))
         {
             interactControl.action.Disable();
         }
@@ -144,8 +155,18 @@ public class NewPlayerControl : MonoBehaviour
 
         if (interactControl.action.triggered)
         {
-            Totem totem = interactableObject.GetComponent<Totem>();
-            totem.OnInteract();
+            if(interactableObject.tag == "EarthTotem")
+            {
+                Totem totem = interactableObject.GetComponent<Totem>();
+                totem.OnInteract();
+            }
+            else if (interactableObject.tag == "AirTotem")
+            {
+                AirTotem totem = interactableObject.GetComponent<AirTotem>();
+                totem.OnInteract();
+            }
+            
+
         }
 
         if (climbControl.action.triggered)
@@ -209,6 +230,16 @@ public class NewPlayerControl : MonoBehaviour
     {
         isCrouching = false;
     }
+
+    if (!isPlayerGrounded())
+    {
+        climbControl.action.Disable();
+    }
+    else
+    {
+ //       climbControl.action.Enable();
+    }
+    
 
     }
     

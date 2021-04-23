@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     {
         Controls = new PlayerControls();
 
-        Controls.pausebutton.pause.performed += ctx =>
+        Controls.Player.Menu.performed += ctx =>
         {
 
             pausePressed = ctx.ReadValueAsButton();
@@ -69,13 +69,11 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        Controls.pausebutton.Enable();
         Controls.Player.Enable();
     }
 
     private void OnDisable()
     {
-        Controls.pausebutton.Disable();
         Controls.Player.Disable();
     }
 }

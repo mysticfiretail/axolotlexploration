@@ -73,6 +73,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb5e2de2-3ae8-40c5-b2f8-a0bb8a9b8716"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -240,50 +248,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""pausebutton"",
-            ""id"": ""a08aa460-44cb-47fc-a7bf-e1c8b35a18f8"",
-            ""actions"": [
-                {
-                    ""name"": ""pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""dc05646b-ca4a-4724-999c-c1e07b8fc9ff"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=1,behavior=2)""
                 },
                 {
-                    ""name"": ""mouseControls"",
-                    ""type"": ""Button"",
-                    ""id"": ""b2603cf3-d3f3-48af-852d-a29aa4da0378"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=1,behavior=2)""
-                }
-            ],
-            ""bindings"": [
-                {
                     ""name"": """",
-                    ""id"": ""559a281b-7c61-4bab-b6bf-70f1fdb91968"",
+                    ""id"": ""eb2e8af9-08e6-456b-bfa3-7526105d8352"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2542a6a3-03fd-4890-85f3-e4eefbd33cb6"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""mouseControls"",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -301,10 +274,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
-        // pausebutton
-        m_pausebutton = asset.FindActionMap("pausebutton", throwIfNotFound: true);
-        m_pausebutton_pause = m_pausebutton.FindAction("pause", throwIfNotFound: true);
-        m_pausebutton_mouseControls = m_pausebutton.FindAction("mouseControls", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,6 +331,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Climb;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -372,6 +343,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,6 +374,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
+                @Menu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -427,51 +402,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Climb.started += instance.OnClimb;
                 @Climb.performed += instance.OnClimb;
                 @Climb.canceled += instance.OnClimb;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // pausebutton
-    private readonly InputActionMap m_pausebutton;
-    private IPausebuttonActions m_PausebuttonActionsCallbackInterface;
-    private readonly InputAction m_pausebutton_pause;
-    private readonly InputAction m_pausebutton_mouseControls;
-    public struct PausebuttonActions
-    {
-        private @PlayerControls m_Wrapper;
-        public PausebuttonActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @pause => m_Wrapper.m_pausebutton_pause;
-        public InputAction @mouseControls => m_Wrapper.m_pausebutton_mouseControls;
-        public InputActionMap Get() { return m_Wrapper.m_pausebutton; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PausebuttonActions set) { return set.Get(); }
-        public void SetCallbacks(IPausebuttonActions instance)
-        {
-            if (m_Wrapper.m_PausebuttonActionsCallbackInterface != null)
-            {
-                @pause.started -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
-                @pause.performed -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
-                @pause.canceled -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnPause;
-                @mouseControls.started -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
-                @mouseControls.performed -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
-                @mouseControls.canceled -= m_Wrapper.m_PausebuttonActionsCallbackInterface.OnMouseControls;
-            }
-            m_Wrapper.m_PausebuttonActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @pause.started += instance.OnPause;
-                @pause.performed += instance.OnPause;
-                @pause.canceled += instance.OnPause;
-                @mouseControls.started += instance.OnMouseControls;
-                @mouseControls.performed += instance.OnMouseControls;
-                @mouseControls.canceled += instance.OnMouseControls;
-            }
-        }
-    }
-    public PausebuttonActions @pausebutton => new PausebuttonActions(this);
     public interface IPlayerActions
     {
         void OnMouseLook(InputAction.CallbackContext context);
@@ -481,10 +418,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
-    }
-    public interface IPausebuttonActions
-    {
-        void OnPause(InputAction.CallbackContext context);
-        void OnMouseControls(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

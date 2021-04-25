@@ -63,7 +63,7 @@ public class ScrollingText : MonoBehaviour
         }
         parentTransform.position = endTransform.position;
         //SkipButton.SetActive(false);
-        BackButton.SetActive(true);
+     //   BackButton.SetActive(true);
     }
 
     public void ToMainMenu(){

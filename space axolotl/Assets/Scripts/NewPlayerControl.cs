@@ -82,6 +82,13 @@ public class NewPlayerControl : MonoBehaviour
             GameObject interact = other.transform.gameObject;
             interactableObject = interact;
         }
+        else if(other.tag == ("WaterTotem"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+
         
         if (other.tag==("Ladder"))
         {
@@ -101,6 +108,11 @@ public class NewPlayerControl : MonoBehaviour
         {
             interactControl.action.Disable();
         }
+        else if(other.tag == ("WaterTotem"))
+        {
+            interactControl.action.Disable();
+        }
+
         if(other.tag==("Ladder"))
         {
              climbControl.action.Disable();
@@ -163,6 +175,11 @@ public class NewPlayerControl : MonoBehaviour
             else if (interactableObject.tag == "AirTotem")
             {
                 AirTotem totem = interactableObject.GetComponent<AirTotem>();
+                totem.OnInteract();
+            }
+            else if (interactableObject.tag == "WaterTotem")
+            {
+                WaterTotem totem = interactableObject.GetComponent<WaterTotem>();
                 totem.OnInteract();
             }
             

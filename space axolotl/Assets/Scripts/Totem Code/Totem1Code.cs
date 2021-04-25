@@ -19,6 +19,27 @@ public class Totem1Code : MonoBehaviour
 
     public GameObject totem3;
 
+    public GameObject waterTotem1;
+    public GameObject waterTotem2;
+    public GameObject waterTotem3;
+    public GameObject waterTotem4;
+    public GameObject waterTotem5;
+    public GameObject waterTotem6;
+    public GameObject waterTotem7;
+    public GameObject waterTotem8;
+    public GameObject waterTotem9;
+    public GameObject waterTotem10;
+    public GameObject waterTotem11;
+    public GameObject waterTotem12;
+    public GameObject WaterPodium;
+
+    /////
+
+   [SerializeField] public GameObject waterTerrain;
+
+
+    /////
+
     void Update()
     {
         if(Button1.GetComponent<Button1>().isActive == true && Button2.GetComponent<Button2>().isActive == true)
@@ -44,6 +65,15 @@ public class Totem1Code : MonoBehaviour
             else{
                 
             }
+
+        if (waterTotem1.GetComponent<WaterTotem>().isCorrect == true && waterTotem2.GetComponent<WaterTotem>().isCorrect == true && waterTotem3.GetComponent<WaterTotem>().isCorrect == true && waterTotem4.GetComponent<WaterTotem>().isCorrect == true && waterTotem5.GetComponent<WaterTotem>().isCorrect == true && waterTotem6.GetComponent<WaterTotem>().isCorrect == true && waterTotem7.GetComponent<WaterTotem>().isCorrect == true && waterTotem8.GetComponent<WaterTotem>().isCorrect == true && waterTotem9.GetComponent<WaterTotem>().isCorrect == true && waterTotem10.GetComponent<WaterTotem>().isCorrect == true && waterTotem11.GetComponent<WaterTotem>().isCorrect == true && waterTotem12.GetComponent<WaterTotem>().isCorrect == true)
+        {
+            WaterPodium.SetActive(true);
+            waterTerrain.GetComponent<waterUp>().enabled = true;
+
+        }
+        
+    
     }
     
 

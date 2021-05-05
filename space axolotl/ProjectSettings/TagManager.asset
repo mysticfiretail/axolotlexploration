@@ -15,6 +15,13 @@ TagManager:
   - EarthTotem
   - AirTotem
   - WaterTotem
+  - single
+  - both
+  - Crystals
+  - AirCrystal
+  - WaterCrystal
+  - EarthCrystal
+  - FireCrystal
   layers:
   - Default
   - TransparentFX

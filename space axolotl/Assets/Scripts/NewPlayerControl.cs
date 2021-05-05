@@ -88,6 +88,30 @@ public class NewPlayerControl : MonoBehaviour
             GameObject interact = other.transform.gameObject;
             interactableObject = interact;
         }
+        else if(other.tag == ("AirCrystal"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("EarthCrystal"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("WaterCrystal"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("FireCrystal"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
 
         
         if (other.tag==("Ladder"))
@@ -109,6 +133,22 @@ public class NewPlayerControl : MonoBehaviour
             interactControl.action.Disable();
         }
         else if(other.tag == ("WaterTotem"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("AirCrystal"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("WaterCrystal"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("EartCrystal"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("FireCrystal"))
         {
             interactControl.action.Disable();
         }
@@ -181,6 +221,28 @@ public class NewPlayerControl : MonoBehaviour
             {
                 WaterTotem totem = interactableObject.GetComponent<WaterTotem>();
                 totem.OnInteract();
+            }
+            else if(interactableObject.tag == "AirCrystal")
+                {
+                    Crystals crystals = interactableObject.GetComponent<Crystals>();
+                    crystals.OnInteract();
+                }
+                else if(interactableObject.tag == "WaterCrystal")
+                {
+                    Crystals crystals = interactableObject.GetComponent<Crystals>();
+                    crystals.OnInteract();
+                }
+                else if(interactableObject.tag == "FireCrystal")
+                {
+                    Crystals crystals = interactableObject.GetComponent<Crystals>();
+                    crystals.OnInteract();
+                }
+                else if(interactableObject.tag == "EarthCrystal")
+                {
+                    Crystals crystals = interactableObject.GetComponent<Crystals>();
+                    crystals.OnInteract();
+                
+                
             }
             
 

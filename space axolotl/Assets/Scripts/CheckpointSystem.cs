@@ -16,7 +16,12 @@ public GameObject BBoop;
              currentCheckpoint = other.gameObject;
         }
 
-        if(other.tag == "Bounds")
+        if(other.tag == "Bounds" && currentCheckpoint.name =="Bt house")
+        {
+            player.transform.position = currentCheckpoint.transform.position;
+            //BBoop.transform.position = currentCheckpoint.transform.position;
+        }
+        else if(other.tag == "Bounds")
         {
             player.transform.position = currentCheckpoint.transform.position;
             BBoop.transform.position = currentCheckpoint.transform.position;

@@ -39,6 +39,8 @@ public class NewPlayerControl : MonoBehaviour
     [SerializeField]
     public GameObject interactableObject;
 
+    public GameObject crystalTracker;
+
 
     void Awake()
     {
@@ -112,6 +114,36 @@ public class NewPlayerControl : MonoBehaviour
             GameObject interact = other.transform.gameObject;
             interactableObject = interact;
         }
+        else if(other.tag == ("FireTotemF"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("EarthTotemF"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("WaterTotemF"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("AirTotemF"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
+        else if(other.tag == ("CrystalSlot"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
 
         
         if (other.tag==("Ladder"))
@@ -144,11 +176,31 @@ public class NewPlayerControl : MonoBehaviour
         {
             interactControl.action.Disable();
         }
-        else if(other.tag == ("EartCrystal"))
+        else if(other.tag == ("EarthCrystal"))
         {
             interactControl.action.Disable();
         }
         else if(other.tag == ("FireCrystal"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("EarthTotemF"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("WaterTotemF"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("AirTotemF"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("FireTotemF"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("CrystalSlot"))
         {
             interactControl.action.Disable();
         }
@@ -241,9 +293,32 @@ public class NewPlayerControl : MonoBehaviour
                 {
                     Crystals crystals = interactableObject.GetComponent<Crystals>();
                     crystals.OnInteract();
-                
-                
-            }
+                }
+                else if(interactableObject.tag == "EarthTotemF" && crystalTracker.GetComponent<CrystalTracking>().EarthCrystalPlaced == true)
+                {
+                    EarthTotemF totem = interactableObject.GetComponent<EarthTotemF>();
+                    totem.OnInteract();
+                }
+                else if(interactableObject.tag == "WaterTotemF" && crystalTracker.GetComponent<CrystalTracking>().WaterCrystalPlaced == true)
+                {
+                    WaterTotemF totem = interactableObject.GetComponent<WaterTotemF>();
+                    totem.OnInteract();
+                }
+                else if(interactableObject.tag == "FireTotemF" && crystalTracker.GetComponent<CrystalTracking>().FireCrystalPlaced == true)
+                {
+                    FireTotemF totem = interactableObject.GetComponent<FireTotemF>();
+                    totem.OnInteract();
+                }
+                else if(interactableObject.tag == "AirTotemF" && crystalTracker.GetComponent<CrystalTracking>().AirCrystalPlaced == true)
+                {
+                    AirTotemF totem = interactableObject.GetComponent<AirTotemF>();
+                    totem.OnInteract();
+                }
+                else if(interactableObject.tag == "CrystalSlot")
+                {
+                    CrystalSlot slot = interactableObject.GetComponent<CrystalSlot>();
+                    slot.OnInteract();
+                }
             
 
         }

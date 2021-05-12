@@ -18,6 +18,7 @@ public class CinamachineSwitcher : MonoBehaviour
     public GameObject BeepBoop;
 
     public Animator animator;
+    public GameObject changer;
 
     public bool thirdPersonCam = true;
 
@@ -72,7 +73,7 @@ public class CinamachineSwitcher : MonoBehaviour
 
     private void SwitchState()
     {
-        if(thirdPersonCam == true)
+        if(thirdPersonCam == true && changer.GetComponent<SWITCHERENABLE>().SwitchEnable == true)
         {
             animator.Play("BBCam");
             Player.GetComponent<NewPlayerControl>().enabled = false; 

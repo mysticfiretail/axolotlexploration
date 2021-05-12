@@ -19,17 +19,17 @@ public class Crystals : MonoBehaviour
         }
         else if(gameObject.tag =="WaterCrystal")
         {
-            Tracker.GetComponent<CrystalTracking>().AirCrystalT = true;
+            Tracker.GetComponent<CrystalTracking>().WaterCrystalT = true;
             WaterCrystalO.SetActive(false);
         }
         else if(gameObject.tag =="EarthCrystal")
         {
-            Tracker.GetComponent<CrystalTracking>().AirCrystalT = true;
+            Tracker.GetComponent<CrystalTracking>().EarthCrystalT = true;
             EarthCrystalO.SetActive(false);
         }
         else if(gameObject.tag =="FireCrystal")
         {
-            Tracker.GetComponent<CrystalTracking>().AirCrystalT = true;
+            Tracker.GetComponent<CrystalTracking>().FireCrystalT = true;
             FireCrystalO.SetActive(false);
         }
     }

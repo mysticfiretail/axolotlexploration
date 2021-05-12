@@ -146,7 +146,7 @@ public class NewPlayerControl : MonoBehaviour
         }
 
         
-        if (other.tag==("Ladder"))
+        if (other.tag==("Ladder") )
         {
             climbControl.action.Enable();
             GameObject Child = other.transform.GetChild(0).gameObject;
@@ -325,10 +325,12 @@ public class NewPlayerControl : MonoBehaviour
 
         if (climbControl.action.triggered)
         {
+            Debug.Log(isClimbing);
+            animator.SetTrigger("isClimbing");
             Debug.Log("triggered");
             gravityValue = 0f;
             GetComponent<ClimbingLerp>().enabled = true;
-            animator.SetTrigger("isClimbing");
+            
             
         }
         else 
@@ -345,6 +347,7 @@ public class NewPlayerControl : MonoBehaviour
         else
         {
             OnEnable();
+            animator.ResetTrigger("isClimbing");
             
         }
 

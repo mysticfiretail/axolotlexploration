@@ -33,6 +33,7 @@ public class Totem1Code : MonoBehaviour
     public GameObject waterTotem12;
     public GameObject WaterPodium;
     public GameObject WaterCrystal;
+    public GameObject Tracker;
     /////
 
    [SerializeField] public GameObject waterTerrain;
@@ -69,8 +70,15 @@ public class Totem1Code : MonoBehaviour
         if (waterTotem1.GetComponent<WaterTotem>().isCorrect == true && waterTotem2.GetComponent<WaterTotem>().isCorrect == true && waterTotem3.GetComponent<WaterTotem>().isCorrect == true && waterTotem4.GetComponent<WaterTotem>().isCorrect == true && waterTotem5.GetComponent<WaterTotem>().isCorrect == true && waterTotem6.GetComponent<WaterTotem>().isCorrect == true && waterTotem7.GetComponent<WaterTotem>().isCorrect == true && waterTotem8.GetComponent<WaterTotem>().isCorrect == true && waterTotem9.GetComponent<WaterTotem>().isCorrect == true && waterTotem10.GetComponent<WaterTotem>().isCorrect == true && waterTotem11.GetComponent<WaterTotem>().isCorrect == true && waterTotem12.GetComponent<WaterTotem>().isCorrect == true)
         {
             WaterPodium.SetActive(true);
-            WaterCrystal.SetActive(true);
-            waterTerrain.GetComponent<waterUp>().enabled = true;
+            if(!Tracker.GetComponent<CrystalTracking>().WaterCrystalT)
+            {
+                WaterCrystal.SetActive(true);
+            }
+            else
+            {
+                WaterCrystal.SetActive(false);
+            }
+             waterTerrain.GetComponent<waterUp>().enabled = true;
 
         }
         

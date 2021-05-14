@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button1 : MonoBehaviour
 {
     public bool isActive;
+    
 
     void OnTriggerEnter(Collider other)
     {

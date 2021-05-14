@@ -9,7 +9,7 @@ public class BBControlsScript : MonoBehaviour
     public CharacterController controller;
     PlayerControls Input;
     
-    private Vector3 playerVelocity;
+    public Vector3 playerVelocity;
     private bool groundedPlayer = true;
     Transform cameraMainTransform;
 
@@ -31,6 +31,8 @@ public class BBControlsScript : MonoBehaviour
     private bool isClimbing = false;
 
     public float distToGround = 1.5f;
+
+    public bool isGrounded;
 
     void Awake()
     {
@@ -168,7 +170,7 @@ public class BBControlsScript : MonoBehaviour
             
         }
 
-    bool isBBGrounded()
+     bool isBBGrounded()
     {
         return Physics.Raycast (transform.position, Vector3.down, distToGround);
     }
@@ -176,9 +178,11 @@ public class BBControlsScript : MonoBehaviour
     if (!isBBGrounded())
     {
         BBclimbControl.action.Disable();
+        isGrounded = false;
     }
     else
     {
+        isGrounded = true;
  //       BBclimbControl.action.Enable();
     }
 

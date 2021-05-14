@@ -29,8 +29,8 @@ public class Teleportation : MonoBehaviour
        if(gameObject.tag =="both")
        {
             Debug.Log("check");
-            player.transform.position = teleportTarget.transform.position;
-            BBplayer.transform.position = teleportTarget.transform.position;
+            player.transform.position = new Vector3 (teleportTarget.transform.position.x-1,teleportTarget.transform.position.y,teleportTarget.transform.position.z-1);
+            BBplayer.transform.position = new Vector3 (teleportTarget.transform.position.x+1,teleportTarget.transform.position.y,teleportTarget.transform.position.z+1);
             Debug.Log("done");
        }
    }

@@ -13,7 +13,7 @@ public class NewPlayerControl : MonoBehaviour
     public CharacterController controller;
     PlayerControls Input;
     
-    private Vector3 playerVelocity;
+    public Vector3 playerVelocity;
     private bool groundedPlayer;
     Transform cameraMainTransform;
 
@@ -40,6 +40,7 @@ public class NewPlayerControl : MonoBehaviour
     public GameObject interactableObject;
 
     public GameObject crystalTracker;
+    public bool isGrounded;
 
 
     void Awake()
@@ -397,6 +398,14 @@ public class NewPlayerControl : MonoBehaviour
  //       climbControl.action.Enable();
     }
     
+    if(!isPlayerGrounded())
+    {
+        isGrounded = false;
+    }
+    else
+    {
+        isGrounded = true;
+    }
 
     }
     
@@ -433,10 +442,13 @@ public class NewPlayerControl : MonoBehaviour
             controller.height = originalHeight;
         }
 
+
     bool isPlayerGrounded()
     {
         return Physics.Raycast (transform.position, Vector3.down, distToGround);
     }
+
+    
 
 }
 

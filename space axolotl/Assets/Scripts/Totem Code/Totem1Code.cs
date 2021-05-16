@@ -34,6 +34,7 @@ public class Totem1Code : MonoBehaviour
     public GameObject WaterPodium;
     public GameObject WaterCrystal;
     public GameObject Tracker;
+    public GameObject waterfall;
     /////
 
    [SerializeField] public GameObject waterTerrain;
@@ -79,6 +80,7 @@ public class Totem1Code : MonoBehaviour
                 WaterCrystal.SetActive(false);
             }
              waterTerrain.GetComponent<waterUp>().enabled = true;
+             waterfall.SetActive(true);
 
         }
         

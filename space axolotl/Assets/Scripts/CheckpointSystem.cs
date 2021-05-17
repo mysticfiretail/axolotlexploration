@@ -40,27 +40,45 @@ public GameObject BBoop;
     }
     void Update()
     {
-        if(!BBoop.GetComponent<BBControlsScript>().isGrounded)
+        if(!BBoop.GetComponent<BBControlsScript>().enabled)
         {
-            BBoop.GetComponent<BBControlsScript>().playerVelocity.y += BBoop.GetComponent<BBControlsScript>().gravityValue * Time.deltaTime;
-            BBoop.GetComponent<BBControlsScript>().controller.Move(BBoop.GetComponent<BBControlsScript>().playerVelocity * Time.deltaTime);
+            //if(!BBoop.GetComponent<BBControlsScript>().isGrounded)
+            //{
+                BBoop.GetComponent<BBControlsScript>().playerVelocity.y += BBoop.GetComponent<BBControlsScript>().gravityValue * Time.deltaTime;
+                BBoop.GetComponent<BBControlsScript>().controller.Move(BBoop.GetComponent<BBControlsScript>().playerVelocity * Time.deltaTime);
+            //}
         }
-         if(!player.GetComponent<NewPlayerControl>().isGrounded)
+
+        if(!player.GetComponent<NewPlayerControl>().enabled)
         {
-            player.GetComponent<NewPlayerControl>().playerVelocity.y += player.GetComponent<NewPlayerControl>().gravityValue * Time.deltaTime;
-            player.GetComponent<NewPlayerControl>().controller.Move(player.GetComponent<NewPlayerControl>().playerVelocity * Time.deltaTime);
+                //if(!player.GetComponent<NewPlayerControl>().isGrounded)
+            //{
+                player.GetComponent<NewPlayerControl>().playerVelocity.y += player.GetComponent<NewPlayerControl>().gravityValue * Time.deltaTime;
+                player.GetComponent<NewPlayerControl>().controller.Move(player.GetComponent<NewPlayerControl>().playerVelocity * Time.deltaTime);
+            //}
         }
+         
     }
     public void RestartCheckpoint()
     {
         CheckpointSystem playerCS = player.GetComponent<CheckpointSystem>();
         CheckpointSystem BBoopCS = BBoop.GetComponent<CheckpointSystem>();
         //Debug.Log("restart checkpoint method called");
+        if(currentCheckpoint.gameObject.name == "Bt house")
+        {
+            player.transform.position = new Vector3(playerCS.currentCheckpointPosition.x - 1,
+            playerCS.currentCheckpointPosition.y,
+            playerCS.currentCheckpointPosition.z - 1);
+        }
+        else
+        {
         player.transform.position = new Vector3(playerCS.currentCheckpointPosition.x - 1,
             playerCS.currentCheckpointPosition.y,
             playerCS.currentCheckpointPosition.z - 1);
-        BBoop.transform.position = new Vector3(BBoopCS.currentCheckpointPosition.x + 2,
+        BBoop.transform.position = new Vector3(BBoopCS.currentCheckpointPosition.x + 1,
             BBoopCS.currentCheckpointPosition.y,
-            BBoopCS.currentCheckpointPosition.z + 2);
+            BBoopCS.currentCheckpointPosition.z + 1);
+        }
+
     }
 }

@@ -18,5 +18,11 @@ public class UIUtilities : MonoBehaviour
         CS.RestartCheckpoint();
        
     }
+
+        public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
+    }
 }
 

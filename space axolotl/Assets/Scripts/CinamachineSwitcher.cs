@@ -73,6 +73,7 @@ public class CinamachineSwitcher : MonoBehaviour
 
     private void SwitchState()
     {
+        
         if(thirdPersonCam == true && changer.GetComponent<SWITCHERENABLE>().SwitchEnable == true)
         {
             animator.Play("BBCam");

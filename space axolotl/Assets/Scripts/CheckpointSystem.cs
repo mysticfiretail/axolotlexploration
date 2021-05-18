@@ -16,6 +16,11 @@ public GameObject BBoop;
         {
              currentCheckpoint = other.gameObject;
             currentCheckpointPosition = currentCheckpoint.transform.position;
+            if(currentCheckpoint.name != "Bt house")
+            {
+                BBoop.GetComponent<CheckpointSystem>().currentCheckpoint = currentCheckpoint;
+            }
+            
         }
 
         if(other.tag == "Bounds" && currentCheckpoint.name =="Bt house")

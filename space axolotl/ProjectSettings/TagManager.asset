@@ -28,6 +28,7 @@ TagManager:
   - AirTotemF
   - WaterTotemF
   - FireTotemF
+  - Credits
   layers:
   - Default
   - TransparentFX

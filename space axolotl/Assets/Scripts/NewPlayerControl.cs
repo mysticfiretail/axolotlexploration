@@ -145,6 +145,12 @@ public class NewPlayerControl : MonoBehaviour
             GameObject interact = other.transform.gameObject;
             interactableObject = interact;
         }
+        else if(other.tag == ("Credits"))
+        {
+            interactControl.action.Enable();
+            GameObject interact = other.transform.gameObject;
+            interactableObject = interact;
+        }
 
         
         if (other.tag==("Ladder") )
@@ -202,6 +208,10 @@ public class NewPlayerControl : MonoBehaviour
             interactControl.action.Disable();
         }
         else if(other.tag == ("CrystalSlot"))
+        {
+            interactControl.action.Disable();
+        }
+        else if(other.tag == ("Credits"))
         {
             interactControl.action.Disable();
         }
@@ -319,6 +329,11 @@ public class NewPlayerControl : MonoBehaviour
                 {
                     CrystalSlot slot = interactableObject.GetComponent<CrystalSlot>();
                     slot.OnInteract();
+                }
+                else if(interactableObject.tag == "Credits")
+                {
+                    Credit totem = interactableObject.GetComponent<Credit>();
+                    totem.OnInteract();
                 }
             
 

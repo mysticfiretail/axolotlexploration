@@ -13,4 +13,52 @@ public class CrystalTracking : MonoBehaviour
     public bool WaterCrystalPlaced = false;
     public bool EarthCrystalPlaced = false;
     public bool FireCrystalPlaced = false;
+
+    public GameObject EarthMenu;
+    public GameObject WaterMenu;
+    public GameObject FireMenu;
+    public GameObject AirMenu;
+
+    private void Update()
+    {
+        if (AirCrystalT == true)
+        {
+            AirMenu.SetActive(true);
+        }
+
+        else
+        {
+            AirMenu.SetActive(false);
+        }
+
+        if (WaterCrystalT == true)
+        {
+            WaterMenu.SetActive(true);
+        }
+
+        else
+        {
+            WaterMenu.SetActive(false);
+        }
+
+        if (EarthCrystalT == true)
+        {
+            EarthMenu.SetActive(true);
+        }
+
+        else
+        {
+            EarthMenu.SetActive(false);
+        }
+
+        if (FireCrystalT == true)
+        {
+            FireMenu.SetActive(true);
+        }
+
+        else
+        {
+            FireMenu.SetActive(false);
+        }
+    }
 }
